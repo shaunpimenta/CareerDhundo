@@ -15,7 +15,7 @@ def filterdata(regiont,location):
 def coldetails(name):
     details=data[data['College Name']==name]
     return details
-@app.route('/', methods=['GET'])
+@app.route('/')
 def handle_call():
     print("Connected")
     return "Successfully Connected"
