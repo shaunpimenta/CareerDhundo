@@ -61,5 +61,5 @@ def extract_name():
 
 #this commands the script to run in the given port
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT'))
-    app.run(host="0.0.0.0",port=port, debug=True)
+#     port = int(os.environ.get('PORT'))
+    app.run(host="0.0.0.0", debug=True)
