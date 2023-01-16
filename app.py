@@ -5,6 +5,7 @@ app=Flask(__name__)
 import pandas as pd
 
 data=pd.read_csv("data.csv")
+ques=pd.read_csv("questions.csv")
 data=data.fillna("NA")
 data.drop(['University','Rating','Country'],axis=1,inplace=True)
 
@@ -15,11 +16,19 @@ def filterdata(regiont,location):
 def coldetails(name):
     details=data[data['College Name']==name]
     return details
-@app.route('/')
+@app.route('/', methods=['GET'])
 def handle_call():
     print("Connected")
     return "Successfully Connected"
-
+@app.route('/ques',methods=['POST'])
+def ques():
+    if request.method=="PSOT":
+        print("Connected")
+        return ques
+    else:
+        return "Questions"
+        
+    
 #the get method. when we call this, it just return the text "Hey!! I'm the fact you got!!!"
 @app.route('/getfact', methods=['POST'])
 def get_fact():
@@ -49,7 +58,7 @@ def extract_name():
         # returnprint("Done")
         return jsonify(coldetails(res).values.tolist()[0])
 
-    return "Successful";
+    return "Successful"
 
 #this commands the script to run in the given port
 if __name__ == '__main__':
