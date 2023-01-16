@@ -25,8 +25,7 @@ def ques():
     if request.method=="PSOT":
         print("Connected")
         return ques
-    else:
-        return "Questions"
+    return "Questions"
         
     
 #the get method. when we call this, it just return the text "Hey!! I'm the fact you got!!!"
